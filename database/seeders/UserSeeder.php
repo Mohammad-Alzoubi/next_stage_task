@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
              'role'     => 'admin',
              'status'   => 'active',
              'image'    => 'https://i.pravatar.cc/300?1',
-             'password' => bcrypt('password'),
+             'password' => bcrypt('admin'),
            ],
            [
              'name'     => 'Vendor user',
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
              'role'     => 'vendor',
              'status'   => 'active',
              'image'    => 'https://i.pravatar.cc/300?2',
-             'password' => bcrypt('password'),
+             'password' => bcrypt('vendor'),
            ],
            [
              'name'     => 'user',
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
              'role'     => 'user',
              'status'   => 'active',
              'image'    => 'https://i.pravatar.cc/300?3',
-             'password' => bcrypt('password'),
+             'password' => bcrypt('user'),
            ],
         ]);
     }
