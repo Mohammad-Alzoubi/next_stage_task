@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Enums\UserTypeEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
@@ -28,8 +29,21 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+//        if($request->user()->role === UserTypeEnum::ADMIN){
+//            return redirect()->intended('/admin/dashboard');
+//        }elseif ($request->user()->role === UserTypeEnum::VENDOR){
+//            return redirect()->intended('/vendor/dashboard');
+//        }
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        switch (Auth::user()->role){
+            case UserTypeEnum::ADMIN://admin
+                return redirect()->intended('/admin/dashboard');
+            case UserTypeEnum::VENDOR://vendor
+                return redirect()->intended('/vendor/dashboard');
+            case UserTypeEnum::USER://user
+                return redirect()->intended(RouteServiceProvider::HOME);
+        }
+        return 'nothing';
     }
 
     /**
