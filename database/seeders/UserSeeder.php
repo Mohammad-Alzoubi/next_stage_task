@@ -17,31 +17,13 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
            [
-             'name'     => 'Admin user',
-             'username' => 'adminuser',
+             'name'     => 'Admin',
+             'username' => 'admin_user',
              'email'    => 'admin@gmail.com',
              'role'     => 'admin',
              'status'   => 'active',
-             'image'    => 'https://i.pravatar.cc/300?1',
-             'password' => bcrypt('admin'),
-           ],
-           [
-             'name'     => 'Vendor user',
-             'username' => 'vendoruser',
-             'email'    => 'vendor@gmail.com',
-             'role'     => 'vendor',
-             'status'   => 'active',
-             'image'    => 'https://i.pravatar.cc/300?2',
-             'password' => bcrypt('vendor'),
-           ],
-           [
-             'name'     => 'user',
-             'username' => 'user',
-             'email'    => 'user@gmail.com',
-             'role'     => 'user',
-             'status'   => 'active',
-             'image'    => 'https://i.pravatar.cc/300?3',
-             'password' => bcrypt('user'),
+             'image'    => 'backend/assets/img/avatar/avatar-1.png',
+             'password' => bcrypt('password'),
            ],
         ]);
     }

@@ -29,21 +29,9 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-//        if($request->user()->role === UserTypeEnum::ADMIN){
-//            return redirect()->intended('/admin/dashboard');
-//        }elseif ($request->user()->role === UserTypeEnum::VENDOR){
-//            return redirect()->intended('/vendor/dashboard');
-//        }
-
-        switch (Auth::user()->role){
-            case UserTypeEnum::ADMIN://admin
-                return redirect()->intended('/admin/dashboard');
-            case UserTypeEnum::VENDOR://vendor
-                return redirect()->intended('/vendor/dashboard');
-            case UserTypeEnum::USER://user
-                return redirect()->intended(RouteServiceProvider::HOME);
+        if($request->user()->role === UserTypeEnum::ADMIN){
+            return redirect()->intended('/admin/dashboard');
         }
-        return 'nothing';
     }
 
     /**
